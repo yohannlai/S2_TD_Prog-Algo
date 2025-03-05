@@ -24,5 +24,27 @@ int main()
     Fraction f4 { 2, 6 };
     std::cout << "1/6 + 2/6 = " << f3 + f4 << std::endl;
 
+    std::cout << "1/6 == 2/6 : " << (f3 == f4) << std::endl;
+
+    std::cout << "1/6 == 1/6 : " << (f3 == f3) << std::endl;
+
+    std::cout << "1/6 != 2/6 : " << (f3 != f4) << std::endl;
+
+    std::cout << "2/6 != 2/6 : " << (f4 != f4) << std::endl;
+
+    std::cout << "1/6 < 2/6 : " << (f3 < f4) << std::endl;
+
+    std::cout << "1/6 <= 2/6 : " << (f3 <= f4) << std::endl;
+
+    std::cout << "1/6 <= 1/6 : " << (f3 <= f3) << std::endl;
+
+    std::cout << "1/6 > 2/6 : " << (f3 > f4) << std::endl;
+
+    std::cout << "2/6 > 1/6 : " << (f4 > f3) << std::endl;
+
+    std::cout << "1/6 >= 2/6 : " << (f3 >= f4) << std::endl;
+
+    std::cout << "1/6 >= 1/6 : " << (f3 >= f3) << std::endl;
+
     return 0;
 }
