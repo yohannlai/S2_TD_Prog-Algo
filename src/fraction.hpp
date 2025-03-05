@@ -4,6 +4,11 @@
 struct Fraction {
     unsigned int numerator { 0 };
     unsigned int denominator { 1 };
+
+    Fraction& operator+=(Fraction const& f);
+    Fraction& operator-=(Fraction const& f);
+    Fraction& operator*=(Fraction const& f);
+    Fraction& operator/=(Fraction const& f);
 };
 
 Fraction operator+(Fraction const& f1, Fraction const& f2);

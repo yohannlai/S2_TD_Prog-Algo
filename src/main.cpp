@@ -10,8 +10,6 @@ int main()
 
     std::cout << "f2 = " << f2 << std::endl;
 
-    // f1 += f2;
-
     std::cout << "f1 + f2 = " << (f1 + f2) << std::endl;
 
     std::cout << "f1 - f2 = " << (f1 - f2) << std::endl;
@@ -45,6 +43,20 @@ int main()
     std::cout << "1/6 >= 2/6 : " << (f3 >= f4) << std::endl;
 
     std::cout << "1/6 >= 1/6 : " << (f3 >= f3) << std::endl;
+
+    Fraction f5 { 1, 3 };
+
+    f5 += f3;
+    std::cout << "1/3 += 1/6 : " << f5 << std::endl;
+
+    f5 -= f3;
+    std::cout << "1/2 -= 1/6 : " << f5 << std::endl;
+
+    f5 *= f3;
+    std::cout << "1/3 *= 1/6 : " << f5 << std::endl;
+
+    f5 /= f3;
+    std::cout << "1/18 /= 1/6 : " << f5 << std::endl;
 
     return 0;
 }
