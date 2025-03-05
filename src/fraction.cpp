@@ -1,7 +1,8 @@
+#include "fraction.hpp"
 #include "utils.hpp"
 #include <iostream>
 
-inline std::ostream& operator<<(std::ostream& os, const Fraction& f) {
+std::ostream& operator<<(std::ostream& os, const Fraction& f) {
     return os << f.numerator << "/" << f.denominator;
 }
 

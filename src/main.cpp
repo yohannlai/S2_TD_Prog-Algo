@@ -1,4 +1,5 @@
-#include "fraction.cpp"
+#include "fraction.hpp"
+#include <iostream>
 
 int main()
 {
@@ -7,24 +8,21 @@ int main()
 
     std::cout << "f1 = " << f1 << std::endl;
 
-    std::cout << " f2 = " << f2 << std::endl;
+    std::cout << "f2 = " << f2 << std::endl;
 
-    Fraction f3 { f1 + f2 };
     // f1 += f2;
-    f1 = (f1 + f2);
 
-    std::cout << "add(f1, f2) = " << f3 << std::endl;
+    std::cout << "f1 + f2 = " << (f1 + f2) << std::endl;
 
-    std::cout << "sub(f1, f2) = " << (f1 - f2) << std::endl;
+    std::cout << "f1 - f2 = " << (f1 - f2) << std::endl;
 
-    std::cout << "mul(f1, f2) = " << (f1 * f2) << std::endl;
+    std::cout << "f1 * f2 = " << (f1 * f2) << std::endl;
 
-    std::cout << "div(f1, f2) = " << (f1 / f2) << std::endl;
+    std::cout << "f1 / f2 = " << (f1 / f2) << std::endl;
 
-    std::cout << "add(1/6, 2/6) = ";
-    Fraction f4 { 1, 6 };
-    Fraction f5 { 2, 6 };
-    std::cout << f4 + f5 << << std::endl;
+    Fraction f3 { 1, 6 };
+    Fraction f4 { 2, 6 };
+    std::cout << "1/6 + 2/6 = " << f3 + f4 << std::endl;
 
     return 0;
 }
