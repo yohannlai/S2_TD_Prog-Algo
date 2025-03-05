@@ -9,6 +9,9 @@ struct Fraction {
     Fraction& operator-=(Fraction const& f);
     Fraction& operator*=(Fraction const& f);
     Fraction& operator/=(Fraction const& f);
+
+    float to_float() const;
+    operator float() const;
 };
 
 Fraction operator+(Fraction const& f1, Fraction const& f2);

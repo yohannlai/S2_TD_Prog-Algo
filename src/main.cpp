@@ -58,5 +58,20 @@ int main()
     f5 /= f3;
     std::cout << "1/18 /= 1/6 : " << f5 << std::endl;
 
+    Fraction f6 { 3, 2 };
+    std::cout << "3/2 as float : " << static_cast<float>(f6) << std::endl;
+
+    Fraction f7 { 5, 3 };
+    std::cout << "5/3 as float : " << static_cast<float>(f7) << std::endl;
+
+    Fraction f8 { 7, 4 };
+    std::cout << "7/4 as float : " << static_cast<float>(f8) << std::endl;
+
+    Fraction f9 { 10, 2 };
+    std::cout << "10/2 as float : " << static_cast<float>(f9) << std::endl;
+
+    Fraction f10 { 0, 1 };
+    std::cout << "0/1 as float : " << static_cast<float>(f10) << std::endl;
+    
     return 0;
 }
