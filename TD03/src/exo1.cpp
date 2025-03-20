@@ -1,16 +1,6 @@
 #include "sort.hpp"
 #include <iostream>
 
-void print_vector(const std::vector<int> & vec)
-{
-    int n = vec.size();
-    std::cout << "[";
-    for (int i = 0; i < n - 1; i++){
-        std::cout << vec[i] << ", ";
-    }
-    std::cout << vec.back() << "]";
-}
-
 void bubble_sort(std::vector<int> & vec)
 {
     std::cout << "Tableau avant tri à bulles : ";
