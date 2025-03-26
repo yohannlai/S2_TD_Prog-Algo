@@ -1,5 +1,5 @@
 #include "sort.hpp"
-#include <iostream>
+#include "display.hpp"
 
 size_t quick_sort_partition(std::vector<float> & vec, size_t left, size_t right, size_t const pivot)
 {
@@ -20,7 +20,7 @@ size_t quick_sort_partition(std::vector<float> & vec, size_t left, size_t right,
 void quick_sort(std::vector<float> & vec, size_t const left, size_t const right)
 {
     if (left < right){
-        size_t pivot = right;
+        size_t pivot = left;
         size_t partition_index = quick_sort_partition(vec, left, right, pivot);
 
         if (partition_index > 0){

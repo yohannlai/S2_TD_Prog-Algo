@@ -1,5 +1,5 @@
 #include "sort.hpp"
-#include <iostream>
+#include "display.hpp"
 
 void bubble_sort(std::vector<int> & vec)
 {
