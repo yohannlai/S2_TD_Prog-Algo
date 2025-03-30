@@ -30,7 +30,7 @@ void test_search(const std::vector<int>vec, int value)
     int result = search(vec, value);
     if (result != -1)
     {
-        std::cout << "Valeur " << value << " trouvées à l'indice " << result << ".\n";
+        std::cout << "Valeur " << value << " trouvée à l'indice " << result << ".\n";
     }
     else
     {
