@@ -12,7 +12,7 @@ int main() {
     std::mt19937 gen(rd()); // Générateur de nombres pseudo-aléatoires Mersenne Twister (un des générateurs les plus performants)
     std::uniform_int_distribution<> dis(0, 100); // Distribution uniforme entre 0 et 100
 
-    for (int i = 0; i < num_array.size(); i++)
+    for (size_t i = 0; i < num_array.size(); i++)
     {
         int random_number { dis(gen) }; // Génération d'un nombre aléatoire
         num_array[i] = random_number;
@@ -97,4 +97,6 @@ int main() {
     // Sommer les éléments du vecteur
     int sum = std::accumulate(begin_it, end_it, 0);
     std::cout << "Somme des éléments du vecteur : " << sum << std::endl;
+
+    return 0;
 }
