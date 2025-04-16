@@ -57,6 +57,7 @@ int main() {
         }
         std::cout << words[i];
     }
+    std::cout << std::endl;
 
     return 0;
 }
