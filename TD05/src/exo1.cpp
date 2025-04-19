@@ -58,7 +58,7 @@ int main()
     }
     std::cout << std::endl;
 
-    //Test fonction polynomial_rolling_hash (3.)
+    // Test fonction polynomial_rolling_hash (3.)
     for (std::string const& s : strings)
     {
         size_t const hash_value3 = polynomial_rolling_hash(s, 31, 1e9 + 9);
