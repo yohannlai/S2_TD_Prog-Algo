@@ -1,3 +1,4 @@
+#include <stack>
 #include "node.hpp"
 
 Node* create_node(int value)
@@ -19,10 +20,14 @@ void Node::insert(int value)
         } else {
             left->insert(value);
         }
-    } else if (value > this->value) {
+    }
+    else
+    {
         if (right == nullptr) {
             right = create_node(value);
-        } else {
+        } 
+        else 
+        {
             right->insert(value);
         }
     }
@@ -34,6 +39,7 @@ int Node::height() const
     {
         return true;
     }
+
     int left_height;
     if (left != nullptr)
     {
@@ -41,7 +47,7 @@ int Node::height() const
     }
     else
     {
-        left_height = ;
+        left_height = 0;
     }
 
     int right_height;
@@ -53,6 +59,7 @@ int Node::height() const
     {
         right_height = 0;
     }
+
     return std::max(left_height, right_height) + 1;
 }
 
@@ -74,5 +81,139 @@ void Node::delete_children()
 
 void Node::display_infix()
 {
-    
+    if (left != nullptr)
+    {
+        left->display_infix();
+    }
+    std::cout << value << " ";
+    if (right != nullptr)
+    {
+        right ->display_infix();
+    }
+}
+
+std::vector<Node const*> Node::prefix() const
+{
+    std::vector<Node const*> result;
+    result.push_back(this);
+    if (left != nullptr)
+    {
+        auto left_prefix = left->prefix();
+        result.insert(result.end(), left_prefix.begin(), left_prefix.end());
+    }
+    if (right != nullptr)
+    {
+        auto right_prefix = right->prefix();
+        result.insert(result.end(), right_prefix.begin(), right_prefix.end());
+    }
+    return result;
+}
+
+// Postfixe version itérative bonus
+std::vector<Node const*> Node::postfix() const 
+{
+    std::vector<Node const*> nodes {};
+    std::stack<Node const*> to_process {};
+    Node const* previous {nullptr};
+    to_process.push(this);
+
+    while (!to_process.empty()) {
+        Node const* current { to_process.top() };
+
+        // Si on est en train de descendre dans l'arbre
+        if (previous == nullptr || (previous->left == current || previous->right == current)) {
+            if (current->left != nullptr) {
+                to_process.push(current->left);
+            }
+            else if (current->right != nullptr) {
+                to_process.push(current->right);
+            } else {
+                nodes.push_back(current);
+                to_process.pop();
+            }
+
+        // Si l'on remonte dans l'arbre en venant de la gauche
+        }else if (current->left == previous) {
+            if(current->right != nullptr) {
+                to_process.push(current->right);
+            } else {
+                nodes.push_back(current);
+                to_process.pop();
+            }
+
+        // Si l'on remonte dans l'arbre en venant de la droite
+        } else if (current->right == previous) {
+            nodes.push_back(current);
+            to_process.pop();
+        }
+
+        previous = current;
+
+    }
+    return nodes;
+}
+
+Node*& most_left(Node*& node)
+{
+    if (node->left == nullptr)
+    {
+        return node;
+    }
+    else
+    {
+        return most_left(node->left);
+    }
+}
+
+bool remove(Node*& node, int value)
+{
+    if (node == nullptr)
+    {
+        return false;
+    }
+
+    if (value < node->value)
+    {
+        return remove(node->left, value);
+    }
+    else if (value > node->value)
+    {
+        return remove(node->right, value);
+    }
+    else
+    {
+        if (node->is_leaf())
+        {
+            delete node;
+            node = nullptr;
+        }
+        else if (node->left == nullptr)
+        {
+            Node* temp = node;
+            node = node->right;
+            delete temp;
+        }
+        else if (node->right == nullptr)
+        {
+            Node* temp = node;
+            node = node->left;
+            delete temp;
+        }
+        else
+        {
+            Node*& most_left_node = most_left(node->right);
+            node->value = most_left_node->value;
+            remove(node->right, most_left_node->value);
+        }
+        return true;
+    }
+}
+
+void delete_tree(Node* node)
+{
+    if (node != nullptr)
+    {
+        node->delete_children();
+        delete node;
+    }
 }
