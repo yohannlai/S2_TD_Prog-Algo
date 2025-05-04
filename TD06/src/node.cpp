@@ -1,3 +1,5 @@
+// Exercice 1 : Implémentation
+
 #include <stack>
 #include "node.hpp"
 
@@ -5,6 +7,20 @@ Node* create_node(int value)
 {
     Node* node = new Node {value, nullptr, nullptr};
     return node;
+}
+
+void pretty_print_left_right(Node const& node, std::string const& prefix, bool is_left) {
+    if (node.right) {
+        pretty_print_left_right(*node.right, prefix + (is_left ? "|   " : "    "), false);
+    }
+    std::cout << prefix << (is_left ? "+-- " : "+-- ") << node.value << std::endl;
+    if (node.left) {
+        pretty_print_left_right(*node.left, prefix + (is_left ? "    " : "|   "), true);
+    }
+}
+
+void pretty_print_left_right(Node const& node) {
+    pretty_print_left_right(node, "", true);
 }
 
 bool Node::is_leaf() const
@@ -216,4 +232,23 @@ void delete_tree(Node* node)
         node->delete_children();
         delete node;
     }
+}
+
+// Bonus :
+int Node::min() const
+{
+    if (left == nullptr)
+    {
+        return value;
+    }
+    return left->min();
+}
+
+int Node::max() const
+{
+    if (right == nullptr)
+    {
+        return value;
+    }
+    return right->max();
 }
