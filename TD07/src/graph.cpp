@@ -1,4 +1,4 @@
-#include "../include/graph.hpp"
+#include "graph.hpp"
 #include <iostream>
 
 // Exercice 1
@@ -26,7 +26,7 @@ namespace Graph
         add_directed_edge(to, from, weight);
     }
 
-    WeightedGraph build_from_adjacency_matrix(std::vector<std::vector<float>> const& adjacency_matrix)
+    WeightedGraph build_from_adjacency_matrix(std::vector<std::vector<int>> const& adjacency_matrix)
     {
         WeightedGraph graph;
         int n = adjacency_matrix.size();
@@ -45,3 +45,4 @@ namespace Graph
         return graph;
     }
 }
+

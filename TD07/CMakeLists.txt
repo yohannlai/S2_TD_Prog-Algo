@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 project(TD07)
 
-add_executable(graph src/graph.cpp)
+add_executable(main src/main.cpp)
