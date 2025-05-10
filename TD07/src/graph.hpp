@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <utility>
+#include <functional>
 
 namespace Graph {
     struct WeightedGraphEdge {
@@ -31,6 +32,7 @@ namespace Graph {
 
         void print_DFS(int const start) const;
         void print_BFS(int const start) const;
+        void DFS(int const start, std::function<void(int const)> const& callback) const;
     };
 
     WeightedGraph build_from_adjacency_matrix(std::vector<std::vector<float>> const& adjacency_matrix);

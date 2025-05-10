@@ -31,5 +31,15 @@ int main()
         std::cout << "Les deux graphes sont différents." << std::endl;
     }
 
+    std::cout << "DFS from node 0:" << std::endl;
+    graph_from_matrix.print_DFS(0);
+
+    std::cout << "BFS from node 0:" << std::endl;
+    graph_from_matrix.print_BFS(0);
+
+    std::cout << "DFS (with callback) from node 0:" << std::endl << "Visited nodes: ";
+    graph_from_matrix.DFS(0, [](int const node_id) { std::cout << node_id << " "; });
+    std::cout << std::endl;
+
     return 0;
 }
